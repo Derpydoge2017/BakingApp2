@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BakingApp</string>
+    <string name="placeholder_recipe">Recipe</string>
+
+    <string name="placeholder_ingredientName">Name : Flour</string>
+    <string name="placeholder_ingredientMeasure">Measure : CUP</string>
+    <string name="placeholder_ingredientQuantity">Quantity : 2</string>
+    <string name="placeholder_instruction">Step 1 : a;ldfkjalsdjfafdasf</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="restart">Restart</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+</resources>
