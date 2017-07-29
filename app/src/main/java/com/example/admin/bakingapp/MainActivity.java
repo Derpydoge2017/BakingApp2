@@ -17,6 +17,7 @@ import com.example.admin.bakingapp.Recipe.Recipe;
 import com.example.admin.bakingapp.Recipe.RecipeAdapter;
 import com.example.admin.bakingapp.Recipe.RecipeJSONData;
 import com.example.admin.bakingapp.RecipeChild.RecipeChild;
+import com.example.admin.bakingapp.RecipeChild.RecipeChildFragmentTablet;
 
 import java.net.URL;
 import java.util.ArrayList;

@@ -18,6 +18,7 @@ import com.example.admin.bakingapp.RecipeChild.Instructions.Instruction;
 import com.example.admin.bakingapp.RecipeChild.Instructions.InstructionAdapter;
 import com.example.admin.bakingapp.RecipeChild.Instructions.InstructionJSONData;
 import com.example.admin.bakingapp.RecipeDisplay.RecipeDisplayChildActivity;
+import com.example.admin.bakingapp.RecipeDisplay.RecipeDisplayChildFragment;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -73,10 +74,11 @@ public class RecipeChildFragmentTablet extends Fragment implements InstructionAd
 
     @Override
     public void onClick(Instruction instruction) {
-        Class destinationClass = RecipeDisplayChildActivity.class;
-        Intent intentToStartDetailActivity = new Intent(context, destinationClass);
-        intentToStartDetailActivity.putExtra(Intent.EXTRA_TITLE, instruction);
-        startActivity(intentToStartDetailActivity);
+
+        // Replace framelayout with new detail fragment
+        RecipeDisplayChildFragment fragmentItem = new RecipeDisplayChildFragment();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDetail, fragmentItem).commit();
+
     }
 
     public class InstructionQueryTask extends AsyncTask<String, Void, ArrayList> {

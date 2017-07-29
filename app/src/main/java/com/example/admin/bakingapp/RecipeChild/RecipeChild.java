@@ -1,11 +1,8 @@
 package com.example.admin.bakingapp.RecipeChild;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,14 +47,6 @@ public class RecipeChild extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child);
-
-        Context context = this;
-        mIngredientRV = (RecyclerView) findViewById(R.id.ingredient_rv);
-        GridLayoutManager gridIngredientManager = new GridLayoutManager(context, 1);
-        mIngredientRV.setLayoutManager(gridIngredientManager);
-        mIngredientAdapter = new IngredientAdapter();
-        mIngredientRV.setAdapter(mIngredientAdapter);
-        loadIngredientData();
 
         // Call this to determine which layout we are in (tablet or phone)
         determinePaneLayout();
@@ -115,9 +104,13 @@ public class RecipeChild extends AppCompatActivity implements AdapterView.OnItem
 
         if (isTwoPane){
 
-            // Replace framelayout with new detail fragment
-            RecipeDisplayChildFragment fragmentItem = new RecipeDisplayChildFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDetail, fragmentItem).commit();
+            Context context = this;
+            mIngredientRV = (RecyclerView) findViewById(R.id.ingredient_rv);
+            GridLayoutManager gridIngredientManager = new GridLayoutManager(context, 1);
+            mIngredientRV.setLayoutManager(gridIngredientManager);
+            mIngredientAdapter = new IngredientAdapter();
+            mIngredientRV.setAdapter(mIngredientAdapter);
+            loadIngredientData();
 
         } else {
 
