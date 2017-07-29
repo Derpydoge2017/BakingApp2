@@ -36,10 +36,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragmentInstructionList"
             android:layout_height="wrap_content"
-            android:name="com.example.admin.bakingapp.RecipeChild.RecipeChildFragmentTablet"
             android:layout_width="0dp"
             android:layout_weight="1"
             tools:layout="@layout/instruction_list_layout" />

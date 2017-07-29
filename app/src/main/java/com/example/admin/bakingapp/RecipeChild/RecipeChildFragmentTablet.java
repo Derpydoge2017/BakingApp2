@@ -79,6 +79,8 @@ public class RecipeChildFragmentTablet extends Fragment implements InstructionAd
         RecipeDisplayChildFragment fragmentItem = new RecipeDisplayChildFragment();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDetail, fragmentItem).commit();
 
+
+
     }
 
     public class InstructionQueryTask extends AsyncTask<String, Void, ArrayList> {

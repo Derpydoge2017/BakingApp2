@@ -10,14 +10,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 
-import com.example.admin.bakingapp.Data.RecipeContract;
 import com.example.admin.bakingapp.NetworkUtils;
 import com.example.admin.bakingapp.R;
 import com.example.admin.bakingapp.Recipe.Recipe;
 import com.example.admin.bakingapp.RecipeChild.Ingredients.Ingredient;
 import com.example.admin.bakingapp.RecipeChild.Ingredients.IngredientAdapter;
 import com.example.admin.bakingapp.RecipeChild.Ingredients.IngredientJSONData;
-import com.example.admin.bakingapp.RecipeDisplay.RecipeDisplayChildFragment;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -96,7 +94,14 @@ public class RecipeChild extends AppCompatActivity implements AdapterView.OnItem
 
 
     private void determinePaneLayout() {
+
         FrameLayout fragmentItemDetail = (FrameLayout) findViewById(R.id.fragmentDetail);
+
+        //Get EXTRA from intent and attach to Fragment as Argument
+        mRecipe = getIntent().getParcelableExtra("android.intent.extra.TITLE");
+        Bundle args = new Bundle();
+        args.putParcelable("ARGUMENTS", mRecipe);
+
         // If there is a second pane for details
         if (fragmentItemDetail != null) {
             isTwoPane = true;
@@ -112,14 +117,13 @@ public class RecipeChild extends AppCompatActivity implements AdapterView.OnItem
             mIngredientRV.setAdapter(mIngredientAdapter);
             loadIngredientData();
 
+            RecipeChildFragmentTablet tabletChildFragment = new RecipeChildFragmentTablet();
+            tabletChildFragment.setArguments(args);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentInstructionList, tabletChildFragment).commit();
+
+
+
         } else {
-
-            //Get EXTRA from intent and attach to Fragment as Argument
-            mRecipe = getIntent().getParcelableExtra("android.intent.extra.TITLE");
-
-            Bundle args = new Bundle();
-
-            args.putParcelable("ARGUMENTS", mRecipe);
 
             RecipeChildFragment recipeChildFragment = new RecipeChildFragment();
             recipeChildFragment.setArguments(args);
